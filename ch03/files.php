@@ -23,7 +23,7 @@ $fd = fopen('for_read.txt', 'r');
 fseek($fd, 92);
 
 while ($str = fgets($fd)) {
-	echo $str;
+    echo $str;
 }
 
 fclose($fd);
@@ -35,13 +35,13 @@ echo PHP_EOL."4. Последовательная запись в файл:".PHP
 $fd = fopen('for_write.txt', 'w');
 
 $arr = array(
-	"Грузите апельсины бочками",
-	"Пилите, Шура, пилите, она - золотая"
+    "Грузите апельсины бочками",
+    "Пилите, Шура, пилите, она - золотая"
 );
 
 $writed = 0;
 foreach ($arr as $str) {
-	$writed += fwrite($fd, $str.PHP_EOL);
+    $writed += fwrite($fd, $str.PHP_EOL);
 }
 
 echo "Записано {$writed} байт".PHP_EOL;
@@ -84,9 +84,9 @@ $filemtime = filemtime($filename);
 $fileperms = fileperms($filename);
 
 echo "Файл: {$filename}".PHP_EOL.
-	"Размер: {$filesize} байт".PHP_EOL.
-	"Изменен: ".date("d.m.Y H:i:s", $filemtime).PHP_EOL.
-	"Права доступа: ".substr(sprintf('%o', $fileperms), -3).PHP_EOL;
+    "Размер: {$filesize} байт".PHP_EOL.
+    "Изменен: ".date("d.m.Y H:i:s", $filemtime).PHP_EOL.
+    "Права доступа: ".substr(sprintf('%o', $fileperms), -3).PHP_EOL;
 
 /////////////////////////////////////////////////////////////////////////////// 8
 
@@ -97,14 +97,15 @@ $dstruct = './mydir/subdir';
 echo "Создаем структуру директорий {$dstruct}".PHP_EOL;
 
 if (!is_dir($dstruct))
-	mkdir($dstruct, 0700, true);
+    mkdir($dstruct, 0700, true);
 
 echo "Отображаем текущую директорию:".PHP_EOL;
 
 if ($dh = opendir('.')) {
     while (($cur = readdir($dh)) !== false) {
-    	if ($cur != '.' and $cur != '..')
-        	echo ' '.(filetype($cur) == 'file' ? 'Файл' : 'Директория') . " {$cur}\n";
+        if ($cur != '.' and $cur != '..') {
+            echo ' '.(filetype($cur) == 'file' ? 'Файл' : 'Директория') . " {$cur}\n";
+        }
     }
     closedir($dh);
 }
@@ -112,12 +113,12 @@ if ($dh = opendir('.')) {
 echo "Удаляем крайнюю директорию в пути {$dstruct}".PHP_EOL;
 
 if (is_dir($dstruct))
-	rmdir($dstruct);
+    rmdir($dstruct);
 
 $onemore = './onemoredir';
 
 if (!is_dir($dstruct))
-	mkdir($dstruct, 0755);
+    mkdir($dstruct, 0755);
 
 /////////////////////////////////////////////////////////////////////////////// 9
 
@@ -128,8 +129,8 @@ $myfile = './myfile.txt';
 touch($myfile);
 
 chmod($myfile, 0777);
-//chown($myfile, 'username');
-//chgrp($myfile, 'groupname');
+//chown($myfile, 'username');  // rights
+//chgrp($myfile, 'groupname'); //
 
 echo "Файл {$myfile}".PHP_EOL;
 echo "Права доступа к файлу: " . substr(sprintf('%o', fileperms($myfile)), -3).PHP_EOL;
@@ -151,7 +152,7 @@ if (flock($fd, LOCK_EX | LOCK_NB)) {
 
     flock($fd, LOCK_UN);
 
-	echo "Блокировка снята".PHP_EOL;
+    echo "Блокировка снята".PHP_EOL;
 } else {
     echo "Не удалось заблокировать файл".PHP_EOL;
 }
@@ -173,7 +174,7 @@ echo PHP_EOL."12. Считывание пословно с заданным ра
 $fd = fopen('arr.csv', 'r');
 
 while ($str = fgetcsv($fd)) {
-	print_r($str);
+    print_r($str);
 }
 
 fclose($fd);

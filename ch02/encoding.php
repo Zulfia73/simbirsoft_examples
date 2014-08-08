@@ -8,7 +8,7 @@ $source = <<<EOT
 EOT;
 
 /*
-	Convert encoding from UTF-8 to ASCII
+    Convert encoding from UTF-8 to ASCII
 */
 $result = mb_convert_encoding($source, 'ascii', 'utf-8');
 
