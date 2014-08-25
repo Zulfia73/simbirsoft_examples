@@ -11,6 +11,6 @@ _demo:
     type:     annotation
     prefix:   /demo
 
-_book:
+_books:
     resource: "@AcmeDemoBundle/Controller/BookController.php"
     type:     annotation

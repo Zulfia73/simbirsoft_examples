@@ -1,34 +1,18 @@
 {% extends "AcmeDemoBundle::layout.html.twig" %}
 
-{% block title %}Book{% endblock %}
+{% form_theme edit_form 'AcmeDemoBundle:Form:theme.html.twig' %}
+
+{% block title %}{{ '%entity% edit'|trans({'%entity%': 'Book'}, 'admin') }}{% endblock %}
 
 {% block body %}
-    <h1>Book</h1>
+    <h1>{{ '%entity% edit'|trans({'%entity%': 'Book'}, 'admin') }}</h1>
 
-    <table class="table table-hover record_properties">
-        <tbody>
-            <tr>
-                <th scope="row">Id</th>
-                <td>{{ book.id }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Title</th>
-                <td>{{ book.title }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Pages</th>
-                <td>{{ book.pages }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Created</th>
-                <td>{{ book.created|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th scope="row">Updated</th>
-                <td>{{ book.updated|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
-    </table>
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <p>
+            <button class="btn btn-primary" type="submit"><i class="fa fa-edit"></i> {{ 'Edit'|trans({}, 'admin') }}</button>
+        </p>
+    {{ form_end(edit_form) }}
 
     {{ form_start(delete_form) }}
         {{ form_widget(delete_form) }}
@@ -39,9 +23,6 @@
                 <i class="fa fa-list"></i> {{ 'Back to the list'|trans({}, 'admin') }}
             </a>
 
-            <a class="btn btn-primary" href="{{ path('books_edit', {id: book.id}) }}">
-                <i class="fa fa-edit"></i> {{ 'Edit'|trans({}, 'admin') }}
-            </a>
             <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o"></i> {{ 'Delete'|trans({}, 'admin') }}</button>
 
         </div>
