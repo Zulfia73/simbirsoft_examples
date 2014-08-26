@@ -1040,17 +1040,17 @@
         },
         {
             "name": "lexik/form-filter-bundle",
-            "version": "v2.0.4",
+            "version": "v2.0.5",
             "target-dir": "Lexik/Bundle/FormFilterBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lexik/LexikFormFilterBundle.git",
-                "reference": "cdaf5a9b33b5bf787d3075aad5b15f5004979771"
+                "reference": "1702d4faed7deb54059e0903773b3424243cf4f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lexik/LexikFormFilterBundle/zipball/cdaf5a9b33b5bf787d3075aad5b15f5004979771",
-                "reference": "cdaf5a9b33b5bf787d3075aad5b15f5004979771",
+                "url": "https://api.github.com/repos/lexik/LexikFormFilterBundle/zipball/1702d4faed7deb54059e0903773b3424243cf4f9",
+                "reference": "1702d4faed7deb54059e0903773b3424243cf4f9",
                 "shasum": ""
             },
             "require": {
@@ -1096,7 +1096,7 @@
                 "filter",
                 "form"
             ],
-            "time": "2014-04-25 07:17:11"
+            "time": "2014-08-08 13:13:27"
         },
         {
             "name": "monolog/monolog",
